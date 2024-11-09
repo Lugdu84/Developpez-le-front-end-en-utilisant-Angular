@@ -3,7 +3,7 @@ import { map, Observable, of, pipe, tap } from 'rxjs';
 import { OlympicService } from '@services/olympic.service';
 import { Olympics } from '@models/Olympic';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { Charts } from '@models/chart';
+import { Charts } from '@models/Chart';
 
 @Component({
   selector: 'app-home',
