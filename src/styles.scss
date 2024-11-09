@@ -2,21 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+// define a color
+$primary: #0b86cd;
+
 ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip {
-  background-color: rgb(16, 113, 124) !important;
+  background-color: $primary !important;
   border-radius: 5px !important;
 }
 ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip
   .tooltip-caret.position-bottom {
-  border-bottom: 8px solid rgb(16, 113, 124) !important;
+  border-bottom: 8px solid $primary !important;
 }
 
 ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip
   .tooltip-caret.position-top {
-  border-top: 8px solid rgb(16, 113, 124) !important;
+  border-top: 8px solid $primary !important;
 }
 
 ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip
   .tooltip-caret.position-left {
-  border-left: 8px solid rgb(16, 113, 124) !important;
+  border-left: 8px solid $primary !important;
 }
