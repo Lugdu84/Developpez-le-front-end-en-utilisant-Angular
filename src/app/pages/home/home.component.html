@@ -7,12 +7,13 @@
     <ng-template #tooltipTemplate let-model="model">
       <div class="flex flex-col gap-1 px-2 py-1">
         <h2>{{ model.name }}</h2>
-        <div class="flex gap-1 justify-center">
+        <div class="flex gap-1 justify-center items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="14"
-            width="14"
+            height="12"
+            width="12"
             viewBox="0 0 512 512"
+            class="transform rotate-180"
           >
             <path
               d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H133.9c11.2 0 21.7 5.9
