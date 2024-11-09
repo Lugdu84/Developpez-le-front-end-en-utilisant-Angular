@@ -1,7 +1,9 @@
-import { Participation } from './Participation';
+import { Participations } from './Participation';
 
 export interface Olympic {
   id: number;
   country: string;
-  participations: Participation[];
+  participations: Participations;
 }
+
+export type Olympics = Olympic[];
