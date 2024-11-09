@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map, Observable, of, pipe, tap } from 'rxjs';
 import { OlympicService } from '@services/olympic.service';
 import { Olympics } from '@models/Olympic';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-home',
