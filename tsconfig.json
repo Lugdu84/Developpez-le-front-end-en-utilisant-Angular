@@ -7,7 +7,8 @@
       "@environment": ["src/environments/environment"],
       "@models/*": ["src/app/core/models/*"],
       "@services/*": ["src/app/core/services/*"],
-      "@pages/*": ["src/app/pages/*"]
+      "@pages/*": ["src/app/pages/*"],
+      "@components/*": ["src/app/components/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
