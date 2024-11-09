@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// define a color
+$primary: #0b86cd;
+
+ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip {
+  background-color: $primary !important;
+  border-radius: 5px !important;
+}
+ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip
+  .tooltip-caret.position-bottom {
+  border-bottom: 8px solid $primary !important;
+}
+
+ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip
+  .tooltip-caret.position-top {
+  border-top: 8px solid $primary !important;
+}
+
+ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip
+  .tooltip-caret.position-left {
+  border-left: 8px solid $primary !important;
+}
