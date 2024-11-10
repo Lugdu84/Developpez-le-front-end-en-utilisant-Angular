@@ -7,6 +7,7 @@ import { HomeComponent } from '@pages/home/home.component';
 import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TitleComponent } from '@components/title/title.component';
+import { StatsComponent } from '@components/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TitleComponent } from '@components/title/title.component';
     HomeComponent,
     NotFoundComponent,
     TitleComponent,
+    StatsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgxChartsModule],
   providers: [provideHttpClient()],
