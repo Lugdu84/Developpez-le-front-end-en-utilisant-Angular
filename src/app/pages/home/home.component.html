@@ -1,5 +1,9 @@
-<div class="flex flex-col w-full p-2 items-center">
+<div class="flex flex-col w-full p-2 items-center gap-4">
   <app-title title="Medals per Country" />
+  <div class="flex flex-row gap-8">
+    <app-stats label="Number of JOs" [value]="numberOfCountries()" />
+    <app-stats label="Number of countries" [value]="numberOfJo()" />
+  </div>
 </div>
 <div class="">
   <ngx-charts-pie-chart
