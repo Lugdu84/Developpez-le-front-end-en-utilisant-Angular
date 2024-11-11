@@ -31,19 +31,7 @@ export class OlympicService {
     return this.olympics$.asObservable();
   }
 
-  // getOlympic$(id: number) {
-  //   return this.olympics$.asObservable().pipe(
-  //     map((olympics) => olympics.find((olympic) => olympic.id === id)),
-  //     tap((olympic) => this.olympic$.next(olympic || null)),
-  //     catchError((error) => {
-  //       console.error(error);
-  //       this.olympic$.next(null);
-  //       return EMPTY;
-  //     })
-  //   );
-  // }
-
-  getOlympic$(id: number): Observable<Olympic | undefined> {
+  getOlympic(id: number): Observable<Olympic | undefined> {
     return this.http.get<Olympics>(this.olympicUrl).pipe(
       map((olympics) => olympics.find((olympic) => olympic.id === id)),
       catchError((error) => {

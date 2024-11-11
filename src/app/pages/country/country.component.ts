@@ -18,7 +18,7 @@ export class CountryComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.country$ = this.olympicService.getOlympic$(+id).pipe(
+    this.country$ = this.olympicService.getOlympic(+id).pipe(
       map((country) => {
         return {
           id: country!.id,
