@@ -1,9 +1,10 @@
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
-import { map, Observable, of, pipe, tap } from 'rxjs';
+import { Component, OnInit, signal } from '@angular/core';
+import { map, Observable, of, take, tap } from 'rxjs';
 import { OlympicService } from '@services/olympic.service';
-import { Olympics } from '@models/Olympic';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { Charts } from '@models/Chart';
+import { Chart, Charts } from '@models/Chart';
+import { Router } from '@angular/router';
+
+type ChartWithId = Chart & { id: number };
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,9 @@ import { Charts } from '@models/Chart';
 export class HomeComponent implements OnInit {
   protected numberOfCountries = signal(0);
   protected numberOfJo = signal(0);
-  protected olympics$: Observable<Charts> = of([]);
+  protected olympics$: Observable<ChartWithId[]> = of([]);
 
-  constructor(private olympicService: OlympicService) {}
+  constructor(private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics().pipe(
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
       }),
       map((olympics) =>
         olympics.map((olympic) => ({
+          id: olympic.id,
           name: olympic.country,
           value: olympic.participations.reduce(
             (acc, participation) => acc + participation.medalsCount,
@@ -40,5 +42,22 @@ export class HomeComponent implements OnInit {
         }))
       )
     );
+  }
+
+  navigateToCountry(data: Chart): void {
+    this.olympics$
+      .pipe(
+        take(1),
+        map((olympics) =>
+          olympics.find((olympic) => olympic.name === data.name)
+        ),
+        tap((olympic) => {
+          if (!olympic) {
+            return;
+          }
+          this.router.navigateByUrl(`country/${olympic.id}`);
+        })
+      )
+      .subscribe();
   }
 }

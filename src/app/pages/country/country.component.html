@@ -1,0 +1,35 @@
+@if (country$ | async; as country) {
+<div class="w-screen h-screen flex flex-col items-center">
+  <div class="flex flex-col w-full p-2 items-center gap-4">
+    <app-title [title]="country.name" />
+    <div class="flex flex-row gap-4">
+      <app-stats label="Number of entries" [value]="country.numberOfEntries" />
+      <app-stats label="Total number medals" [value]="country.numberOfMedals" />
+      <app-stats
+        label="Total number of athletes"
+        [value]="country.numberOfAthletes"
+      />
+    </div>
+  </div>
+  <div class="h-1/2 w-11/12 md:w-3/4 xl:w-1/2">
+    <ngx-charts-bar-vertical
+      [results]="country.charts"
+      [xAxis]="true"
+      [yAxis]="true"
+      xAxisLabel="Dates"
+      [showXAxisLabel]="true"
+    ></ngx-charts-bar-vertical>
+  </div>
+  <a class="bg-primary rounded-lg py-2 px-3 text-white" routerLink=""
+    >Retourner sur la page d'accueil</a
+  >
+</div>
+
+} @else {
+<div class="w-screen h-screen flex flex-col items-center gap-4 mt-16">
+  <p>Pas de données - Ce pays n'existe pas !</p>
+  <a class="bg-primary rounded-lg py-2 px-3 text-white" routerLink=""
+    >Retourner sur la page d'accueil</a
+  >
+</div>
+}
