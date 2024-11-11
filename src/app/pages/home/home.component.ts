@@ -1,8 +1,6 @@
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
-import { map, Observable, of, pipe, tap } from 'rxjs';
+import { Component, OnInit, signal } from '@angular/core';
+import { map, Observable, of, tap } from 'rxjs';
 import { OlympicService } from '@services/olympic.service';
-import { Olympics } from '@models/Olympic';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { Charts } from '@models/Chart';
 
 @Component({
