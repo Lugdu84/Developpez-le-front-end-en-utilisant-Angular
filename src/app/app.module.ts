@@ -10,6 +10,7 @@ import { TitleComponent } from '@components/title/title.component';
 import { StatsComponent } from '@components/stats/stats.component';
 import { CountryComponent } from '@pages/country/country.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BackButtonComponent } from '@components/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TitleComponent,
     StatsComponent,
     CountryComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,
