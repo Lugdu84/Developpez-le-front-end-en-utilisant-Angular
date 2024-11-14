@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { OlympicService } from '@services/olympic.service';
-import { map, Observable, tap } from 'rxjs';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CountryChart } from '@models/CountryChart';
-import { Olympics } from '@models/Olympic';
+import { OlympicService } from '@services/olympic.service';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-country',
@@ -12,11 +11,8 @@ import { Olympics } from '@models/Olympic';
 export class CountryComponent implements OnInit {
   public country$!: Observable<CountryChart | null>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private olympicService: OlympicService
-  ) {}
+  private route = inject(ActivatedRoute);
+  private olympicService = inject(OlympicService);
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];

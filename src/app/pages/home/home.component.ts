@@ -1,8 +1,8 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { map, Observable, of, take, tap } from 'rxjs';
-import { OlympicService } from '@services/olympic.service';
-import { Chart, Charts } from '@models/Chart';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { Chart } from '@models/Chart';
+import { OlympicService } from '@services/olympic.service';
+import { map, Observable, of, take, tap } from 'rxjs';
 
 type ChartWithId = Chart & { id: number };
 
@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
   protected numberOfJo = signal(0);
   protected olympics$: Observable<ChartWithId[]> = of([]);
 
-  constructor(private olympicService: OlympicService, private router: Router) {}
+  private olympicService = inject(OlympicService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics().pipe(
