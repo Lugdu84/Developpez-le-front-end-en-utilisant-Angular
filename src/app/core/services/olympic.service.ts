@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '@environment';
 import { Olympic, Olympics } from '@models/Olympic';
 import { BehaviorSubject, EMPTY, Observable, of } from 'rxjs';
-import { catchError, map, take, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +41,7 @@ export class OlympicService {
 
     return this.http.get<Olympics>(this.olympicUrl).pipe(
       map((olympics) => olympics.find((olympic) => olympic.id === id)),
+
       catchError((error) => {
         console.error(error);
         return EMPTY;
